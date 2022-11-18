@@ -19,10 +19,14 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+
+// home route
 app.get("/", (req, res) => {
     res.send("Hi there! Nothing is here for you!");
 })
 
+
+// contact route
 app.post("/contact", (req, res) => {
     // construct email content
     let content = `
