@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 // create app instance
 const app = express();
+const port = process.env.PORT ? process.env.PORT : 8080;
 
 // configurations
 dotenv.config();
@@ -17,6 +18,10 @@ const transporter = nodemailer.createTransport({
         pass: process.env.PASS
     }
 });
+
+app.get("/", (req, res) => {
+    res.send("Hi there! Nothing is here for you!");
+})
 
 app.post("/contact", (req, res) => {
     // construct email content
@@ -49,6 +54,6 @@ app.post("/contact", (req, res) => {
     });
 })
 
-app.listen(3000, (err) => {
-    console.log("App listening on port - " + 3000);
+app.listen(port, (err) => {
+    console.log("App listening on port - " + port);
 })
