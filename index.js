@@ -14,8 +14,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
     service: process.env.PROVIDER,
     auth: {
-        user: process.env.USER,
-        pass: process.env.PASS
+        user: process.env.NODEUSER,
+        pass: process.env.NODEPASS
     }
 });
 
@@ -28,6 +28,7 @@ app.get("/", (req, res) => {
 
 // contact route
 app.post("/contact", (req, res) => {
+    log
     // construct email content
     let content = `
     From: ${req.query.name} 
@@ -38,8 +39,8 @@ app.post("/contact", (req, res) => {
     `;
 
     let mailOptions = {
-        from: process.env.USER,
-        to: process.env.USER,
+        from: process.env.NODEUSER,
+        to: process.env.NODEUSER,
         subject: 'Message from portfolio',
         text: content
     };
