@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 
 // contact route
 app.post("/contact", (req, res) => {
-    log
+    
     // construct email content
     let content = `
     From: ${req.query.name} 
